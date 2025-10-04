@@ -1,0 +1,10 @@
+.container {
+    margin: 20px;
+  }
+  .block {
+    padding: 10px 20px;
+    background-color: lightblue;
+    border: 1px solid navy;
+    cursor: pointer;
+    font-weight: bold;
+  }

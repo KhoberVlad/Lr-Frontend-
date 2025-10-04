@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p><span>Функція:</span> (sin(x) + x²)/(x + 1)</p> 
+    <p>Введіть інтервал і крок для неї</p>
+    <form action="">
+        <label for="krock">Крок</label>
+        <input id="krock" type="number">
+        <label for="start-interval">Початок інтервалу</label>
+        <input id="start-interval" type="number">
+        <label for="end-interval">Кінець інтервалу</label>
+        <input id="end-interval" type="number">
+        <label for="loopSelect">Вибір циклу:</label>
+        <select id="loopSelect">
+            <option value="for">for</option>
+            <option value="while">while</option>
+            <option value="doWhile">DoWhile</option>
+        </select>
+        <button type="button" onclick="tabulate()">Табулювати</button>
+        <div id="out"></div>
+    </form>
+    <div class="canvas">
+        <canvas id="canvas"></canvas>
+    <p>Функція: e^(0.2*x*x^2)</p>
+    <button id="graphic" type="submit" onclick="graphic()">Намалювати графік</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
