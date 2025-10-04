@@ -6,6 +6,8 @@ let victoryComputer = document.getElementById("victoryComputer");
 let userCard = document.querySelector(".card-user");
 let computerCard = document.querySelector(".card-computer");
 let drawDifference = document.getElementById("draw");
+let countPos = document.querySelector(".count");
+let count = 0;
 alert(`Правила гри:
      Натисніть кнопку Generate, щоб розпочати раунд.
      Користувач і комп’ютер отримують випадкове число від 1 до 10.
@@ -44,6 +46,9 @@ alert(`Правила гри:
         numberUser.textContent = 0;
         computerNumber.textContent = 0;
         document.getElementById("winGif").style.display = "none";
+        count = 0;
+        countPos.innerHTML = `Спроба ${Number(count)} із 3`;
+        
     }
     function userWins() {
         score.user++;
@@ -73,7 +78,9 @@ alert(`Правила гри:
           winGif.style.display = "none";
         }, 2500);
       }
-      function generate() {
+    function generate() {
+        count++;
+        countPos.innerHTML = `Спроба ${Number(count)} із 3`;
         let user = Math.floor(Math.random() * 10) + 1;
         let computer = Math.floor(Math.random() * 10) + 1;
     
@@ -106,9 +113,11 @@ alert(`Правила гри:
         }, 1000);
         if(score.user == 3){
             alert(`Game over! Victory: ${userName}`);
+            clearScore();
             return; 
-        }else if(score.computer == 3){
+        }else if(score.computer ==  3){
             alert(`Game over! Victory: Computer`);
+            clearScore();
             return; 
         }
     }
