@@ -34,7 +34,17 @@ alert(`Правила гри:
         computer: 0,
         draw: 0
     };
-    
+    function clearScore() {
+        score.user = 0;
+        score.computer = 0;
+        score.draw = 0; 
+        victoryUser.textContent = score.user;
+        victoryComputer.textContent = score.computer;
+        drawDifference.textContent = score.draw;
+        numberUser.textContent = 0;
+        computerNumber.textContent = 0;
+        document.getElementById("winGif").style.display = "none";
+    }
     function userWins() {
         score.user++;
         victoryUser.textContent = score.user;
@@ -101,8 +111,4 @@ alert(`Правила гри:
             alert(`Game over! Victory: Computer`);
             return; 
         }
-    }
-    function clear(){
-        numberUser.textContent = 0;
-        computerNumber.textContent = 0;
     }
