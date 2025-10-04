@@ -3,7 +3,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 .container {
     display: flex;
@@ -144,7 +143,59 @@ body {
     display: none; 
     margin-bottom: 100px;
   }
-  
+  @media (max-width: 380px) {
+    .card-user,
+    .card-computer {
+        max-width: 160px;
+        padding: 8px;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .user-name {
+        font-size: 16px;
+    }
+
+    .circle-outerus,
+    .circle-outercom {
+        width: 60px;
+        height: 60px;
+    }
+
+    .shadowUser,
+    .shadowComputer {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+        color: #FFF;
+    }
+
+    .victory-user,
+    .numberComputer,
+    .numberDraw {
+        color: white;
+        font-size: 14px;
+        padding: 5px 15px;
+    }
+
+    .button-gen {
+        font-size: 18px;
+        padding: 10px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,128,0,0.25);
+    }
+
+    .clear-btn {
+        font-size: 14px;
+        padding: 6px 20px;
+        border-radius: 12px;
+    }
+
+    p {
+        font-size: 13px;
+        margin: 5px 0;
+    }
+}
 @media (min-width: 900px) {
     .win-gif {
         width: 250px;
