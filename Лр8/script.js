@@ -94,4 +94,15 @@ alert(`Правила гри:
             userCard.style.backgroundColor = "";
             computerCard.style.backgroundColor = "";
         }, 1000);
+        if(score.user == 3){
+            alert(`Game over! Victory: ${userName}`);
+            return; 
+        }else if(score.computer == 3){
+            alert(`Game over! Victory: Computer`);
+            return; 
+        }
+    }
+    function clear(){
+        numberUser.textContent = 0;
+        computerNumber.textContent = 0;
     }
