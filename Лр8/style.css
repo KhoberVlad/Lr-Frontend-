@@ -167,4 +167,8 @@ body {
     .card-computer{
         grid-column: 3;
     }
+    .win-gif {
+        width: 400px;
+        height: 400px;
+      }
 }
