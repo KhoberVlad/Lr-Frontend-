@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 .container {
     display: flex;
@@ -102,7 +103,7 @@ body {
     align-items: center;
     gap: 15px;
 }
-.button-gen {
+.button-gen, .clear-btn {
     background: linear-gradient(145deg, #33cc33, #00b300);
     color: white;
     border: none;
@@ -112,6 +113,11 @@ body {
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,128,0,0.3);
     transition: all 0.2s ease;
+}
+.clear-btn{
+    background: linear-gradient(145deg, #00bfff, #0099ff);
+    font-size: 18px;
+    padding: 10px 30px;
 }
 .button-gen:hover {
     background: linear-gradient(145deg, #00e600, #00b300);
@@ -141,11 +147,11 @@ body {
   
 @media (min-width: 600px) {
     .win-gif {
-        width: 300px;
-        height: 300px;
+        width: 100px;
+        height: 100px;
       }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1380px) {
     .container{
         display: grid;
         grid-column:1fr 1fr 1fr;
