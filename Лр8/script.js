@@ -47,7 +47,7 @@ alert(`Правила гри:
         computerNumber.textContent = 0;
         document.getElementById("winGif").style.display = "none";
         count = 0;
-        countPos.innerHTML = `Спроба ${Number(count)} із 3`;
+        countPos.innerHTML = `Спроба ${Number(count)} із 5`;
         
     }
     function userWins() {
@@ -76,11 +76,11 @@ alert(`Правила гри:
         winGif.style.display = "block";
         setTimeout(() => {
           winGif.style.display = "none";
-        }, 2500);
+        }, 1500);
       }
     function generate() {
         count++;
-        countPos.innerHTML = `Спроба ${Number(count)} із 3`;
+        countPos.innerHTML = `Спроба ${Number(count)} із 5`;
         let user = Math.floor(Math.random() * 10) + 1;
         let computer = Math.floor(Math.random() * 10) + 1;
     
