@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 20px;
     min-height: 100vh;
     padding: 20px;
 }
@@ -18,7 +18,7 @@ body {
     background: #ffffff;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 280px;
+    max-width: 180px;
     padding: 20px;
     border-radius: 20px;
     display: flex;
@@ -48,52 +48,41 @@ body {
     box-shadow: inset 2px 2px 4px rgba(255,255,255,0.3),
                 2px 2px 8px rgba(0,0,0,0.15);
 }
-.circle-outerus {
-    width: 120px;
-    height: 120px;
+.circle-outerus,
+.circle-outercom {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #ff944d, #ff6600);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2),
                 5px 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-.shadowUser {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #ff7f24, #ff4500);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 32px;
-    font-weight: bold;
-    box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+.circle-outerus {
+    background: linear-gradient(145deg, #ff944d, #ff6600);
 }
 .circle-outercom {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
     background: linear-gradient(145deg, #b366ff, #9933ff);
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2),
-                5px 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
+.shadowUser,
 .shadowComputer {
-    width: 85px;
-    height: 85px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #aa33ff, #6600cc);
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     font-size: 32px;
     font-weight: bold;
+}
+.shadowUser {
+    background: linear-gradient(145deg, #ff7f24, #ff4500);
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+}
+.shadowComputer {
+    background: linear-gradient(145deg, #aa33ff, #6600cc);
     box-shadow: 0 0 20px rgba(153, 0, 255, 0.6);
 }
 .button {
@@ -113,7 +102,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,128,0,0.3);
     transition: all 0.2s ease;
 }
-.clear-btn{
+.clear-btn {
     background: linear-gradient(145deg, #00bfff, #0099ff);
     font-size: 18px;
     padding: 10px 30px;
@@ -140,87 +129,113 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     z-index: 9999;
-    display: none; 
+    display: none;
     margin-bottom: 100px;
-  }
-  @media (max-width: 380px) {
+}
+@media (max-width: 380px) {
+    .container {
+        padding: 10px;
+        gap: 25px;
+        padding: 15px;
+    }
     .card-user,
     .card-computer {
         max-width: 160px;
         padding: 8px;
         border-radius: 15px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
-
     .user-name {
         font-size: 16px;
     }
-
     .circle-outerus,
     .circle-outercom {
         width: 60px;
         height: 60px;
     }
-
     .shadowUser,
     .shadowComputer {
         width: 45px;
         height: 45px;
         font-size: 22px;
-        color: #FFF;
     }
-
     .victory-user,
-    .numberComputer,
+    .number-computer,
     .numberDraw {
-        color: white;
         font-size: 14px;
         padding: 5px 15px;
     }
-
     .button-gen {
         font-size: 18px;
         padding: 10px 25px;
         border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,128,0,0.25);
     }
-
     .clear-btn {
         font-size: 14px;
         padding: 6px 20px;
-        border-radius: 12px;
     }
-
     p {
         font-size: 13px;
         margin: 5px 0;
     }
+    .win-gif {
+        width: 150px;
+        height: 150px;
+    }
 }
-@media (min-width: 900px) {
+@media (min-width: 700px) {
+    .container {
+        gap: 40px;
+        min-height: 0;
+    }
+    .card-user,
+    .card-computer {
+        max-width: 300px;
+    }
+    .circle-outerus,
+    .circle-outercom {
+        width: 140px;
+        height: 140px;
+    }
+    .shadowUser,
+    .shadowComputer {
+        width: 100px;
+        height: 100px;
+        font-size: 36px;
+    }
+    .button-gen {
+        font-size: 26px;
+        padding: 18px 45px;
+    }
+    .clear-btn {
+        font-size: 20px;
+        padding: 12px 35px;
+    }
     .win-gif {
         width: 250px;
         height: 250px;
-        top: 40%;
-      }
+        top: 42%;
+    }
 }
-@media (min-width: 1380px) {
-    .container{
+@media (min-width: 1280px) {
+    .container {
+        min-height: 100vh;
         display: grid;
-        grid-column:1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
     }
-    .card-user{
+    .card-user {
         grid-column: 1;
         justify-self: end;
     }
-    .button{
+    .button {
         grid-column: 2;
     }
-    .card-computer{
+    .card-computer {
         grid-column: 3;
     }
     .win-gif {
         width: 400px;
         height: 400px;
-      }
+        top: 40%;
+    }
 }
