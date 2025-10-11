@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game "21"</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <section class="card card-user">
+      <div class="card_wrapper_head">
+        <h3 class="user-name" id="userName">User</h3>
+        <p class="victory-user" id="victoryUser">0</p>
+      </div>
+      <p class="point-user">Count: 0</p>
+      <div class="cardRandomUser"></div>
+    </section>
+
+    <div class="button">
+      <div id="winGif" class="win-gif"></div>
+      <p class="count">Спроба 0 із 5</p>
+      <button class="button-gen" id="btnPlay" type="button">Play</button>
+      <p id="draw" class="numberDraw">Draw: 0</p>
+      <div class="button_wrapper">
+        <button type="button" id="btnTakeCard">Take Card</button>
+        <button class="clear-btn" id="btnClear" type="button">Clear</button>
+        <button type="button" class="finish-button" id="btnFinish">Finish</button>
+      </div>
+    </div>
+
+    <section class="card card-computer">
+      <div class="card_wrapper_head">
+        <h3 class="user-name">Computer</h3>
+        <p class="victory-computer" id="victoryComputer">0</p>
+      </div>
+      <p class="point-comp">Count: 0</p>
+      <div class="cardRandomCom"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
