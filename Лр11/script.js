@@ -44,11 +44,11 @@ function showResultGif() {
   let gifUrl = '';
 
   if (score.correct === 20) {
-    gifUrl = 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif'; // 🎉 ідеально
+    gifUrl = 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif'; 
   } else if (score.correct >= 10) {
-    gifUrl = 'https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif'; // 🙂 непогано
+    gifUrl = 'https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif';
   } else {
-    gifUrl = 'https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif'; // 😢 погано
+    gifUrl = 'https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif'; 
   }
 
   $img.attr('src', gifUrl);
@@ -107,7 +107,6 @@ $(document).ready(function () {
       setTimeout(() => {
         $("#answerResult").text(`Тест завершено!`);
         showResultGif();
-        $("#restartBtn").show(); // показати кнопку "заново"
       }, 1000);
     }
   });
