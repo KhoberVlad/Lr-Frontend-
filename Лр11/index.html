@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<main>
+    <div class="wrapper">
+
+        <!-- Pages -->
+        <div class="pages">
+            <button id="translatePages" class="tab active">Translate</button>
+            <button id="dictionaryPages" class="tab">Dictionary</button>
+            <button id="restartBtn" class="tab ">Restart</button>
+        </div>
+        <div class="page pages-translate active">
+            <!-- Card Word -->
+        <div class="word-card">
+            <h1 id="word"></h1>
+            <p class="lang">English</p>
+        </div>
+
+        <!-- Progress --> 
+        <div class="progress">
+            <span id="progress-attemp">0/20</span>
+        </div>
+
+        <!-- Translation block -->
+        <div class="translate-box">
+            <p id="answerResult"></p>
+            <input type="text" id="answerInput" placeholder="Введіть переклад">
+            <div class="lang-row active">
+                <span>English</span>
+                <span>Ukrainian</span>
+            </div>
+        </div>
+
+        <!-- Translate Button -->
+        <button id="translateBtn" class="main-btn" type="button">Translate</button>
+
+        <!-- Score -->
+        <div class="stats">
+            <p class="good">Correct: 0</p>
+            <p class="bad">Incorrect: 0</p>
+        </div>
+        </div>
+        <div class="page pages-dictionary">
+            <div class="list-word">
+                <ul id="wordList">
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+<div id="resultGif" class="gif-overlay">
+    <img src="" alt="Result GIF">
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

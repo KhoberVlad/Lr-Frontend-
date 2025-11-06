@@ -1,4 +1,3 @@
-// Елементи DOM
 const userName = document.getElementById("userName");
 const slots = document.querySelectorAll(".slot");
 const spinBtn = document.getElementById("spinBtn");
@@ -19,13 +18,11 @@ const fruits = [
   "img/icon/orange.svg",
   "img/icon/strawberry.svg"
 ];
-
-// -------------------- ІМ'Я КОРИСТУВАЧА --------------------
 let nameUser = prompt("Введіть ім'я:", "User");
 if (!nameUser || nameUser.trim() === "") nameUser = "User";
 userName.textContent = nameUser;
 
-// -------------------- ЗМІНА СТАВКИ --------------------
+// Зміна ставки
 increaseBetBtn.addEventListener("click", () => {
   let betValue = Number(betInput.value);
   let balanceValue = Number(balanceEl.textContent);
@@ -42,7 +39,7 @@ decreaseBetBtn.addEventListener("click", () => {
   }
 });
 
-// -------------------- СПІН --------------------
+//Спін
 let result = [];
 
 spinBtn.addEventListener("click", spin);
@@ -88,13 +85,11 @@ function spin() {
         const randomIndex = Math.floor(Math.random() * fruits.length);
         randomFruits.push(`<div><img src="${fruits[randomIndex]}" alt="fruit"></div>`);
 
-        // центральна позиція — результат цього слоту
         if (j === 1) result[i] = fruits[randomIndex];
       }
 
       slot.innerHTML = randomFruits.join("");
 
-      // коли всі барабани зупинились
       if (i === slots.length - 1) {
         setTimeout(() => {
           countWin(result);
@@ -106,7 +101,7 @@ function spin() {
   });
 }
 
-// -------------------- ПІДРАХУНОК ВИГРАШУ --------------------
+//Підрахунок виграшу
 function countWin(result) {
   let winMultiplier = 0;
 
@@ -134,7 +129,6 @@ function countWin(result) {
     balanceValue += win;
     balanceEl.textContent = balanceValue.toFixed(2);
 
-    // анімація виграшу ✨
     balanceEl.style.color = "#00ff80";
     balanceEl.style.transition = "color 0.3s";
     setTimeout(() => (balanceEl.style.color = "#fff"), 500);
