@@ -1,0 +1,17 @@
+# Ігнорувати package файли
+package.json
+package-lock.json
+yarn.lock
+
+# Ігнорувати папки збірки та залежностей
+node_modules/
+dist/
+build/
+Individual/
+
+# Ігнорувати середовище
+.env
+
+# Ігнорувати налаштування IDE
+.vscode/
+.idea/
