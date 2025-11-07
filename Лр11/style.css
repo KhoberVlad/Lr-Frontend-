@@ -183,24 +183,28 @@
     font-size: 0.875rem; /* 14px */
   }  
   .gif-overlay {
-    position: fixed;
+    position: fixed; /* фіксована позиція по всьому екрану */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* напівпрозорий чорний фон */
     display: none; /* спочатку приховано */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+    justify-content: center; /* центрування по горизонталі */
+    align-items: center; /* центрування по вертикалі */
+    z-index: 9999; /* поверх усього */
   }
   
+  .gif-overlay.active {
+    display: flex;
+  }
   .gif-overlay img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(255,255,255,0.5);
   }
+  
   
   @media (min-width: 400px){
     main{

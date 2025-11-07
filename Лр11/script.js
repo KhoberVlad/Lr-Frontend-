@@ -24,7 +24,7 @@ let words = [
 let score = {
   correct: 0,
   incorrect: 0,
-  attempt: 0
+  attempt: 19
 };
 
 let currentWord = null;
@@ -39,6 +39,7 @@ function getRandomWord() {
 
 // --- Функція показу гіфки з результатом ---
 function showResultGif() {
+  $('.gif-overlay').addClass('active');
   const $overlay = $('#resultGif');
   const $img = $overlay.find('img');
   let gifUrl = '';

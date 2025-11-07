@@ -8,6 +8,7 @@ node_modules/
 dist/
 build/
 Individual/
+Лр12/
 
 # Ігнорувати середовище
 .env
