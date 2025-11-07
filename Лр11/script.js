@@ -29,15 +29,12 @@ let score = {
 
 let currentWord = null;
 
-// --- Функція вибору випадкового слова ---
 function getRandomWord() {
   currentWord = words[Math.floor(Math.random() * words.length)];
   $("#word").text(currentWord.en);
   $("#answerInput").val("");
   $("#progress-attemp").text(`${score.attempt}/20`);
 }
-
-// --- Функція показу гіфки з результатом ---
 function showResultGif() {
   $('.gif-overlay').addClass('active');
   const $overlay = $('#resultGif');
@@ -55,13 +52,10 @@ function showResultGif() {
   $img.attr('src', gifUrl);
   $overlay.fadeIn(500);
 
-  // При кліку — сховати гіфку
   $overlay.one('click', function () {
     $(this).fadeOut(400);
   });
 }
-
-// --- Функція скидання гри ---
 function resetGame() {
   score.correct = 0;
   score.incorrect = 0;
@@ -77,9 +71,8 @@ $(document).ready(function () {
 
   getRandomWord();
 
-  // --- Перевірка відповіді ---
   $("#translateBtn").click(function () {
-    if (score.attempt >= 20) return; // зупиняємо після 20 питань
+    if (score.attempt >= 20) return;
 
     let userAnswer = $("#answerInput").val().trim().toLowerCase();
     let correctAnswer = currentWord.ua.toLowerCase();
@@ -97,35 +90,33 @@ $(document).ready(function () {
     score.attempt++;
     $("#progress-attemp").text(`${score.attempt}/20`);
 
-    // якщо ще не кінець — нове слово
     if (score.attempt < 20) {
       setTimeout(() => {
         $("#answerResult").text(``);
         getRandomWord();
       }, 1200);
     } else {
-      // якщо 20 — показуємо результат
       setTimeout(() => {
         $("#answerResult").text(`Тест завершено!`);
         showResultGif();
       }, 1000);
     }
   });
-
-  // --- Кнопка словника ---
+  let dictionaryGenerated = false;
   $("#dictionaryPages").on("click", function () {
+    if(dictionaryGenerated) return;
     $(".pages-translate").removeClass("active");
     $(".pages-dictionary").addClass("active");
 
-    $("#wordList").empty(); // щоб не дублювало слова
+    $("#wordList").empty(); 
     words.forEach(function(word) {
       $("#wordList").append(
         `<li class="list">${word.en} — ${word.ua}</li>`
       );
     });
+    dictionaryGenerated = true;
   });
 
-  // --- Кнопка перекладу ---
   $("#translatePages").on("click", function () {
     $(".pages-translate").addClass("active");
     $(".pages-dictionary").removeClass("active");
