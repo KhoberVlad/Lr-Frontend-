@@ -1,0 +1,24 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+// Font families
+$second-font: "Bitcount Prop Double", system-ui;
+$main-font: 'Orbitron', sans-serif;
+
+// Spacing
+$main-margin: 1.5rem;
+$main-padding: 0.5rem 0.75rem;
+
+// Colors
+$main_color: #111111;
+$gold_accent: #d4af37;
+$neon_accent: #F500A0;
+$neon_accent_hover: #FF30B8;
+
+$content_bg: #FFFFFF;
+$text_light: #f5f5f5;
+$text_dark: $main_color;
+
+$header_bg: #0a192f;
+$text_muted: #a0a0a0;

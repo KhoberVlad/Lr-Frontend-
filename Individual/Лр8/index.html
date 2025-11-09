@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сommon game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="card card-user">
+            <h3 class="user-name"  id="userName">User</h3>
+            <p class="victory-user" id="victoryUser">0</p>
+            <div class="circle-outerus">
+                <div class="shadowUser">
+                    <p  id="numberUser">0</p>
+                </div>
+            </div>
+        </section>
+        <div class="button">
+            <p class="count">Спроба 0 із 5</p>
+            <button class="button-gen" id="generate" type="button" onclick="generate()">Generate</button>
+            <p id="draw" class="numberDraw">0</p>
+            <button class="clear-btn" onclick="clearScore()" type="button">Clear</button>
+            <div id="winGif" class="win-gif"></div>
+        </div>
+    
+        <section class="card card-computer">
+            <h3 class="user-name">Computer</h3>
+            <p class="number-computer" id="victoryComputer">0</p>
+            <div class="circle-outercom">
+                <div class="shadowComputer">
+                    <p  id="numberComputer">0</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

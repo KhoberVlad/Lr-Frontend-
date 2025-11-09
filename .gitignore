@@ -1,17 +1,14 @@
-# Ігнорувати package файли
-package.json
-package-lock.json
-yarn.lock
-
-# Ігнорувати папки збірки та залежностей
+# Завжди ігнорувати папку зі встановленими бібліотеками
 node_modules/
-dist/
-build/
-Individual/
 
-# Ігнорувати середовище
-.env
 
-# Ігнорувати налаштування IDE
+# Ігнорувати файли .map, вони потрібні лише для розробки (дебагінгу)
+*.css.map
+Scss/index.css.map
+
+# Файли конфігурації редактора коду (наприклад, VS Code)
 .vscode/
-.idea/
+
+# Системні файли (для macOS і Windows)
+.DS_Store
+Thumbs.db

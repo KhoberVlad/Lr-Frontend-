@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: radial-gradient(circle at center, #050505 0%, #000000 100%);
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 1.875rem; 
+  padding-right: 1.25rem; 
+  padding-left: 1.25rem; 
+}
+h1 {
+  font-size: 2rem; 
+  color: #00ffff;
+  text-shadow: 0 0 0.625rem #00ffff, 0 0 1.25rem #00ffff, 0 0 2.5rem #00ccff; 
+  margin-bottom: 0.625rem; 
+}
+h3 {
+  font-size: 1rem;
+  color: #ff00ff;
+  text-shadow: 0 0 0.625rem #ff00ff, 0 0 1.25rem #ff00ff;
+  margin-bottom: 1.25rem; 
+}
+.machine {
+  background: radial-gradient(circle at top, rgba(0,255,255,0.25) 0%, #000 90%);
+  width: 21.875rem; 
+  height: 18.75rem; 
+  border-radius: 12.5rem 12.5rem 1.5625rem 1.5625rem; 
+  border: 0.1875rem solid #00ffff; 
+  box-shadow: 0 0 1.875rem #00ffff, inset 0 0 2.5rem #00ffff, 0 0 5rem rgba(0,255,255,0.5); /* 30px, 40px, 80px */
+  padding: 1.5625rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roulette {
+  display: flex;
+  justify-content: center;
+  gap: 0.9375rem; 
+  position: relative;
+}
+.slots {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem; 
+  overflow: hidden;
+  width: 16.25rem; 
+  border-radius: 0.9375rem; 
+  border: 0.125rem solid #00ffff; 
+  box-shadow: 0 0 1.25rem #00ffff, inset 0 0 0.625rem #00ffff;
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 1.5625rem; 
+}
+.slot {
+  width: 5rem;
+  height: 12.5rem; 
+  overflow: hidden;
+  border: 0.1875rem solid #00ffff; 
+  border-radius: 0.9375rem;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 1.5625rem #00ffff, inset 0 0 0.9375rem #00ffff, 0 0 2.5rem rgba(0, 255, 255, 0.5); /* 25px, 15px, 40px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  transition: box-shadow 0.3s ease;
+}
+.slot:hover {
+  box-shadow: 0 0 1.875rem #ff00ff, inset 0 0 0.9375rem #ff00ff; 
+}
+.slot div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.75rem; 
+}
+.slot img {
+  width: 3.125rem; 
+  height: 3.125rem; 
+  filter: drop-shadow(0 0 0.625rem #00ffff); 
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+.slot img:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 1.5625rem #ff00ff); 
+}
+.Btn-wrapper {
+  margin-top: 0.625rem; 
+}
+button {
+  background: #000;
+  border: 0.125rem solid #00ffff; 
+  border-radius: 0.625rem; 
+  color: #00ffff;
+  font-size: 1.125rem; 
+  font-family: 'Orbitron', sans-serif;
+  padding: 0.625rem 1.875rem; 
+  cursor: pointer;
+  box-shadow: 0 0 1.25rem #00ffff, inset 0 0 0.625rem #00ffff; 
+  text-shadow: 0 0 0.625rem #00ffff;
+  transition: all 0.25s ease;
+}
+button:hover {
+  background: #00ffff;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 2.5rem #00ffff, inset 0 0 0.625rem #00ffff; 
+  transform: scale(1.05);
+}
+.info {
+  margin-top: 0.9375rem; 
+  font-size: 0.9375rem; 
+  color: #fff;
+  text-shadow: 0 0 0.3125rem #ff00ff; 
+}
+.info p {
+  margin-bottom: 0.625rem; 
+}
+#decreaseBet, #increaseBet {
+  padding: 0.3125rem 0.9375rem; 
+  font-size: 0.875rem; 
+}
+.wrapper-bet #decreaseBet {
+  margin-right: 0.9375rem;
+}
+.wrapper-bet {
+  margin-top: 0.9375rem; 
+}
+#balance, #bet {
+  color: #00ffff;
+  text-shadow: 0 0 0.5rem #00ffff, 0 0 0.75rem #00ffff; 
+}
+#bet {
+  width: 5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem; 
+  border: 0.125rem solid #00ffff; 
+  border-radius: 0.5rem; 
+  background: #000;
+  color: #00ffff;
+  outline: none;
+  padding: 0.25rem; 
+}
+.lose-gif, .jackpot-gif {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 21.875rem; 
+  height: 21.875rem; 
+  z-index: 999999; 
+  opacity: 0;
+  pointer-events: none; 
+  animation: showLose 0.5s ease forwards;
+  filter: drop-shadow(0 0 1.5625rem #ff0044);
+}
+
+@keyframes showLose {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+.fade {
+  animation: hideLose 0.5s ease forwards;
+}
+@keyframes hideLose {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.3;
+  }
+}
+h1 {
+  animation: flicker 2s infinite alternate;
+}
+  .slot img {
+    width: 50px;
+    height: 50px;
+    animation-timing-function: linear;
+  }
+ @keyframes spin {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-100%); }
+        }
+@media(min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .machine {
+    width: 31.25rem;
+    height: 31.25rem;
+  }
+.slots {
+    width: 25rem;
+  }
+.slot {
+    width: 9.375rem;
+    height: 21.875rem;
+}
+.slot div {
+  margin-top: 0.625rem;
+    height: 6.25rem;
+}
+.slot img {
+    width:5.5rem;
+    height: 5.5rem;
+}
+.Btn-wrapper {
+  margin-top: 0.625rem;
+}
+button {
+  font-size: 1.5rem;
+}
+.info {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+#decreaseBet, #increaseBet{
+    font-size: 1.5rem;
+}
+#bet {
+  font-size: 1.2rem;
+}
+}
+  

@@ -20,15 +20,12 @@ let words = [
   {en: "mountain", ua: "гора"},
   {en: "friend", ua: "друг"}
 ];
-
 let score = {
   correct: 0,
   incorrect: 0,
   attempt: 19
 };
-
 let currentWord = null;
-
 function getRandomWord() {
   currentWord = words[Math.floor(Math.random() * words.length)];
   $("#word").text(currentWord.en);
@@ -40,7 +37,6 @@ function showResultGif() {
   const $overlay = $('#resultGif');
   const $img = $overlay.find('img');
   let gifUrl = '';
-
   if (score.correct === 20) {
     gifUrl = 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif'; 
   } else if (score.correct >= 10) {
