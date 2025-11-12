@@ -70,7 +70,7 @@ const allWords = [...words, ...wordsMedium, ...wordsHard];
 let score = {
   correct: 0,
   incorrect: 0,
-  attempt: 0
+  attempt: 19
 };
 let radio ={
   begin: 0,
@@ -107,7 +107,40 @@ $("#translateBtn").click(function() {
     }, 1200);
   }
 });
+function showResultModal() {
+  let percent = Math.round((score.correct / 20) * 100);
+  let level = "";
 
+  if (score.correct >= 16) level = "Високий рівень";
+  else if (score.correct >= 10) level = "Середній рівень";
+  else level = "Низький рівень";
+
+  $("#dialog").html(
+    `<b>Ваш результат:</b> ${score.correct}/20 правильних<br>
+     <b>Процент:</b> ${percent}%<br>
+     <b>Рівень:</b> ${level}`
+  );
+
+  $("#dialog").dialog({
+    modal: true,
+    title: "Результат тесту",
+    width: 350,
+    resizable: false,
+    buttons: {
+      "🔁 Повторити тест": function() {
+        $(this).dialog("close");
+        resetGame();
+      },
+      "📖 Переглянути словник": function() {
+        $(this).dialog("close");
+        $(".pages-translate").removeClass("active");
+        $(".pages-dictionary").addClass("active");
+        $("#wordList").empty();
+        words.forEach(w => $("#wordList").append(`<li>${w.en} — ${w.ua}</li>`));
+      }
+    }
+  });
+}
 function showResultGif() {
   $('.gif-overlay').addClass('active');
   const $overlay = $('#resultGif');
@@ -180,16 +213,17 @@ $(document).ready(function () {
 
     score.attempt++;
     $("#progress-attemp").text(`${score.attempt}/20`);
+
     if (score.attempt < 20) {
       setTimeout(() => {
         $("#answerResult").text(``);
         getRandomWord();
-      }, 1200);
+      }, 1000);
     } else {
       setTimeout(() => {
         $("#answerResult").text(`Тест завершено!`);
-        showResultGif();
-      }, 1000);
+        showResultModal();
+      }, 800);
     }
   });
   let dictionaryGenerated = false;
