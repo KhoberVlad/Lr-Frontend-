@@ -20,38 +20,17 @@ let words = [
   {en: "mountain", ua: "гора"},
   {en: "friend", ua: "друг"}
 ];
-let score = {
-  correct: 0,
-  incorrect: 0,
-  attempt: 19
-};
+
+let score = { correct: 0, incorrect: 0, attempt: 19 };
 let currentWord = null;
+
 function getRandomWord() {
   currentWord = words[Math.floor(Math.random() * words.length)];
   $("#word").text(currentWord.en);
   $("#answerInput").val("");
   $("#progress-attemp").text(`${score.attempt}/20`);
 }
-function showResultGif() {
-  $('.gif-overlay').addClass('active');
-  const $overlay = $('#resultGif');
-  const $img = $overlay.find('img');
-  let gifUrl = '';
-  if (score.correct === 20) {
-    gifUrl = 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif'; 
-  } else if (score.correct >= 10) {
-    gifUrl = 'https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif';
-  } else {
-    gifUrl = 'https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif'; 
-  }
 
-  $img.attr('src', gifUrl);
-  $overlay.fadeIn(500);
-
-  $overlay.one('click', function () {
-    $(this).fadeOut(400);
-  });
-}
 function resetGame() {
   score.correct = 0;
   score.incorrect = 0;
@@ -63,8 +42,43 @@ function resetGame() {
   getRandomWord();
 }
 
-$(document).ready(function () {
+function showResultModal() {
+  let percent = Math.round((score.correct / 20) * 100);
+  let level = "";
 
+  if (score.correct >= 16) level = "Високий рівень";
+  else if (score.correct >= 10) level = "Середній рівень";
+  else level = "Низький рівень";
+
+  $("#dialog").html(
+    `<b>Ваш результат:</b> ${score.correct}/20 правильних<br>
+     <b>Процент:</b> ${percent}%<br>
+     <b>Рівень:</b> ${level}`
+  );
+
+  $("#dialog").dialog({
+    modal: true,
+    title: "Результат тесту",
+    width: 350,
+    resizable: false,
+    buttons: {
+      "🔁 Повторити тест": function() {
+        $(this).dialog("close");
+        resetGame();
+      },
+      "📖 Переглянути словник": function() {
+        $(this).dialog("close");
+        $(".pages-translate").removeClass("active");
+        $(".pages-dictionary").addClass("active");
+        $("#wordList").empty();
+        words.forEach(w => $("#wordList").append(`<li>${w.en} — ${w.ua}</li>`));
+      }
+    }
+  });
+}
+
+
+$(document).ready(function () {
   getRandomWord();
 
   $("#translateBtn").click(function () {
@@ -90,33 +104,27 @@ $(document).ready(function () {
       setTimeout(() => {
         $("#answerResult").text(``);
         getRandomWord();
-      }, 1200);
+      }, 1000);
     } else {
       setTimeout(() => {
         $("#answerResult").text(`Тест завершено!`);
-        showResultGif();
-      }, 1000);
+        showResultModal();
+      }, 800);
     }
   });
-  let dictionaryGenerated = false;
+
   $("#dictionaryPages").on("click", function () {
-    if(dictionaryGenerated) return;
     $(".pages-translate").removeClass("active");
     $(".pages-dictionary").addClass("active");
-
-    $("#wordList").empty(); 
-    words.forEach(function(word) {
-      $("#wordList").append(
-        `<li class="list">${word.en} — ${word.ua}</li>`
-      );
-    });
-    dictionaryGenerated = true;
+    $("#wordList").empty();
+    words.forEach(w => $("#wordList").append(`<li>${w.en} — ${w.ua}</li>`));
   });
 
   $("#translatePages").on("click", function () {
     $(".pages-translate").addClass("active");
     $(".pages-dictionary").removeClass("active");
   });
+
   $("#restartBtn").on("click", function () {
     resetGame();
   });
