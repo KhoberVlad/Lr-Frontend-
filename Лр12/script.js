@@ -70,7 +70,7 @@ const allWords = [...words, ...wordsMedium, ...wordsHard];
 let score = {
   correct: 0,
   incorrect: 0,
-  attempt: 19
+  attempt: 0
 };
 let radio ={
   begin: 0,
